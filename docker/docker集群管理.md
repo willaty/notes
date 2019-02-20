@@ -3,8 +3,9 @@
 ## 可视化
 
 ```bash
-docker service create --name portainer --publish 9000:9000 --replicas=1 --constraint 'node.role == manager' --mount type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock --mount type=bind,src=//opt/portainer,dst=/data portainer/portainer -H unix:///var/run/docker.sock
+$ curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
 
+$ docker stack deploy --compose-file=portainer-agent-stack.yml portainer
 ```
 
 ## swarm集群
